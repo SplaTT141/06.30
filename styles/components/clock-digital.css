@@ -1,0 +1,22 @@
+.date {
+  font-size: 5rem;
+  color: #fff;
+  text-align: center;
+}
+
+.time {
+  text-align: center;
+  color: #fff;
+  font-size: 10rem;
+}
+
+.date,
+.time {
+  transition: all 1s;
+}
+
+.date.day,
+.time.day {
+  color: #333;
+  transition: all 1s;
+}

@@ -1,0 +1,61 @@
+.clock-analog {
+  margin-top: 6rem;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-analog::after {
+  content: "";
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.clock-analog > * {
+  transform-origin: bottom;
+}
+
+.hours {
+  background-color: #333;
+  width: 16px;
+  height: 100px;
+  position: absolute;
+  top: calc(50% - 100px);
+  left: calc(50% - 8px);
+}
+
+.minutes {
+  background-color: #333;
+  width: 10px;
+  height: 160px;
+  position: absolute;
+  top: calc(50% - 160px);
+  left: calc(50% - 5px);
+}
+
+.seconds {
+  background-color: #333;
+  width: 4px;
+  height: 190px;
+  position: absolute;
+  top: calc(50% - 190px);
+  left: calc(50% - 2px);
+}
+
+.clock-analog.day {
+  background-color: #333;
+}
+
+.hours.day,
+.minutes.day,
+.seconds.day,
+.clock-analog.day::after {
+  background-color: #fff;
+}
