@@ -1,5 +1,5 @@
 .clock-analog {
-  margin-top: 6rem;
+  margin-top: 2rem;
   width: 500px;
   height: 500px;
   border-radius: 50%;
@@ -29,6 +29,7 @@
   position: absolute;
   top: calc(50% - 100px);
   left: calc(50% - 8px);
+  border-radius: 30%;
 }
 
 .minutes {
@@ -38,6 +39,7 @@
   position: absolute;
   top: calc(50% - 160px);
   left: calc(50% - 5px);
+  border-radius: 25%;
 }
 
 .seconds {
@@ -47,6 +49,7 @@
   position: absolute;
   top: calc(50% - 190px);
   left: calc(50% - 2px);
+  border-radius: 30%;
 }
 
 .clock-analog.day {
@@ -57,5 +60,44 @@
 .minutes.day,
 .seconds.day,
 .clock-analog.day::after {
+  background-color: #fff;
+}
+
+.mark {
+  background-color: #333;
+  width: 5px;
+  height: 40px;
+  border-radius: 0 0 20% 20%;
+  transition: 0.5s;
+}
+
+.mark.h-12 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.mark.h-3 {
+  position: absolute;
+  top: 50%;
+  left: calc(100% - 20px);
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.mark.h-6 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  rotate: 180deg;
+}
+
+.mark.h-9 {
+  position: absolute;
+  top: 50%;
+  left: calc(0% + 20px);
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.mark.day {
   background-color: #fff;
 }
