@@ -46,6 +46,7 @@ export function homeFunction() {
         let h = now.getHours();
         let min = now.getMinutes();
         let s = now.getSeconds();
+
         h = addZero(h);
         min = addZero(min);
         s = addZero(s);
@@ -68,15 +69,14 @@ export function homeFunction() {
         clearInterval(intervalId);
     }
 
+
     function addHours(hourNumber) {
 
         const now = new Date();
 
-        let h = now.getHours();
+        let h = now.getHours() + hourNumber;
         let min = now.getMinutes();
         let s = now.getSeconds();
-
-        h = h + hourNumber;
 
         h = addZero(h);
         min = addZero(min);
@@ -85,9 +85,10 @@ export function homeFunction() {
         timeElement.textContent = h + ':' + min + ':' + s;
 
         clockArrowsRotation(h, min, s);
-        // setInterval(addHours, 1000);
-        console.log(typeof h);
+
+        console.log(typeof hourNumber + " " + hourNumber);
     }
+
 
     function addZero(t) {
         if (t < 10) {
@@ -102,6 +103,10 @@ export function homeFunction() {
             stopClock();
             const cityName = city.textContent.toLowerCase().trim();
             addHours(cities[cityName]);
+            setInterval(addHours, 1000);
+            console.log(cities[cityName]);
         });
     }
+
+    //FUNKCIJA ADDHOUR GAUNA SKAICIU IS MASYVO VIENA KARTA, PO PIRMO SUVEIKIMA FUNKCIJA NEBEGAUNA SKAICIAUS
 }
