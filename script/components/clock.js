@@ -62,11 +62,12 @@ export function homeFunction() {
         clockArrowsRotation(h, min, s);
     }
 
-    const intervalId = setInterval(clock, 1000);
+    const intervalIdMainClock = setInterval(clock, 1000);
     clock();
 
     function stopClock() {
-        clearInterval(intervalId);
+        clearInterval(intervalIdMainClock);
+        clearInterval(intervalIdOtherCitiesClock);
     }
 
 
@@ -98,15 +99,18 @@ export function homeFunction() {
         return t;
     }
 
+    let intervalIdOtherCitiesClock = null;
+
     for (const city of citiesDOM) {
         city.addEventListener('click', () => {
             stopClock();
+
             const cityName = city.textContent.toLowerCase().trim();
-            addHours(cities[cityName]);
-            setInterval(addHours, 1000);
-            console.log(cities[cityName]);
+            const offset = cities[cityName];
+
+            addHours(offset);
+
+            intervalIdOtherCitiesClock = setInterval(() => addHours(offset), 1000);
         });
     }
-
-    //FUNKCIJA ADDHOUR GAUNA SKAICIU IS MASYVO VIENA KARTA, PO PIRMO SUVEIKIMA FUNKCIJA NEBEGAUNA SKAICIAUS
 }
