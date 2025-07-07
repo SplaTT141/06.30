@@ -86,8 +86,6 @@ export function homeFunction() {
         timeElement.textContent = h + ':' + min + ':' + s;
 
         clockArrowsRotation(h, min, s);
-
-        console.log(typeof hourNumber + " " + hourNumber);
     }
 
 
